@@ -19,32 +19,20 @@ except Exception as ex:
 
 #print(test.decode('utf-8'))
 	
-conn.hset('uiconfig:fieldsShownUI', '1', 'row_certificate_allowed_num_san')	
-conn.hset('uiconfig:fieldsShownUI', '2', 'row_email_san_management')	
+conn.delete('uiconfig:fieldsShownUI')
+conn.rpush('uiconfig:fieldsShownUI', 'special_fields_for_certs_ms')	
+conn.rpush('uiconfig:fieldsShownUI', 'user_identified_by_tin')
+conn.rpush('uiconfig:fieldsShownUI', 'cns_like_common_name_msg')
+conn.rpush('uiconfig:fieldsShownUI', 'ssl_client_common_name_msg')
 
-conn.hset('mwconfig:serviceType:11:uiField:1', 'rendered_row', 'true')
-conn.hset('mwconfig:serviceType:11:uiField:1', 'description', 'ExternalRA\CertificatesAuthorizeComplete\step4.xhtml')
+conn.hset('mwconfig:serviceType:10:uiField:special_fields_for_certs_ms', 'rendered', 'true')
+conn.hset('mwconfig:serviceType:11:uiField:special_fields_for_certs_ms', 'rendered', 'true')
+conn.hset('mwconfig:serviceType:12:uiField:special_fields_for_certs_ms', 'rendered', 'true')
+conn.hset('mwconfig:serviceType:14:uiField:special_fields_for_certs_ms', 'rendered', 'true')
+conn.hset('mwconfig:serviceType:3:uiField:user_identified_by_tin', 'rendered', 'true')
+conn.hset('mwconfig:serviceType:2:uiField:cns_like_common_name_msg', 'rendered', 'true')
+conn.hset('mwconfig:serviceType:1:uiField:ssl_client_common_name_msg', 'rendered', 'true')
 
-conn.hset('mwconfig:serviceType:11:uiField:2', 'rendered_row', 'true')
-conn.hset('mwconfig:serviceType:11:uiField:2', 'description', 'ExternalRA\CertificatesAuthorizeComplete\step4.xhtml')
-
-conn.hset('mwconfig:serviceType:12:uiField:1', 'rendered_row', 'true')
-conn.hset('mwconfig:serviceType:12:uiField:1', 'description', 'ExternalRA\CertificatesAuthorizeComplete\step4.xhtml')
-
-conn.hset('mwconfig:serviceType:12:uiField:2', 'rendered_row', 'true')
-conn.hset('mwconfig:serviceType:12:uiField:2', 'description', 'ExternalRA\CertificatesAuthorizeComplete\step4.xhtml')
-
-conn.hset('mwconfig:serviceType:10:uiField:1', 'rendered_row', 'true')
-conn.hset('mwconfig:serviceType:10:uiField:1', 'description', 'ExternalRA\CertificatesAuthorizeComplete\step4.xhtml')
-
-conn.hset('mwconfig:serviceType:10:uiField:2', 'rendered_row', 'true')
-conn.hset('mwconfig:serviceType:10:uiField:2', 'description', 'ExternalRA\CertificatesAuthorizeComplete\step4.xhtml')
-
-conn.hset('mwconfig:serviceType:14:uiField:1', 'rendered_row', 'true')
-conn.hset('mwconfig:serviceType:14:uiField:1', 'description', 'ExternalRA\CertificatesAuthorizeComplete\step4.xhtml')
-
-conn.hset('mwconfig:serviceType:14:uiField:2', 'rendered_row', 'true')
-conn.hset('mwconfig:serviceType:14:uiField:2', 'description', 'ExternalRA\CertificatesAuthorizeComplete\step4.xhtml')
 
 
 	

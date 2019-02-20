@@ -7,7 +7,7 @@ node3 = 'devbe03.svil.actalis.it'
 
 try:
     conn = redis.StrictRedis(
-    host=node2,
+    host=node1,
     port=16379,
     password='$redis0123!')
 #    print (conn)

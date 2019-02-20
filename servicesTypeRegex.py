@@ -17,8 +17,6 @@ except Exception as ex:
     print ('Error:', ex)
     exit('Failed to connect, terminating.')
 
-#print(test.decode('utf-8'))
-	
 serviceTypesList = conn.hgetall('mwconfig:serviceTypes')	
 
 regexMap = {}
@@ -39,8 +37,6 @@ regexMap["ssl_client"] = "([A-Za-z0-9\\s\\/]+)*"
 regexMap["mobile_client"] = "([A-Za-z0-9@\\.\\s]+)*"
 regexMap["dsig_procaut"] = "([A-Za-z0-9@\\.\\s]+)*"
 regexMap["generic"] = "([a-zA-Z0-9'\\s\\-\\:\\.\\&\\,\\@\\/])+"
-
-#print(streetno.get("0"))
 
 for key, value in serviceTypesList.items():
 	typeId = key.decode('utf-8')
