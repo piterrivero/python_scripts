@@ -35,8 +35,7 @@ conn.hset("mwconfig:serviceTypes", "14", "ssl_server_wild_multi")
 conn.hset("mwconfig:serviceTypes", "15", "ssl_server_wildcard")
 conn.hset("mwconfig:serviceTypes", "16", "ssl_server_wildcard_dv")
 conn.hset("mwconfig:serviceTypes", "17", "winlogon")
-conn.hset("mwconfig:serviceTypes", "18", "ssl_codesign_ev")
-conn.hset("mwconfig:serviceTypes", "19", "doc_sign")
+conn.hset("mwconfig:serviceTypes", "18", "doc_sign")
 	
 serviceTypesList = conn.hgetall('mwconfig:serviceTypes')	
 
@@ -49,7 +48,6 @@ regexMap["ssl_server_ms_ov"] = "((?=[a-zA-Z0-9\\-]{1,63}\\.)(xn--)?[a-zA-Z0-9]+(
 regexMap["ssl_server_ms_dv"] = "((?=[a-zA-Z0-9\\-]{1,63}\\.)(xn--)?[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*\\.)+(((xn--)?)[a-zA-Z0-9\\-]{2,63})"
 regexMap["ssl_server_wildcard"] = "\\*\\.((?=[a-zA-Z0-9\\-]{1,63}\\.)(xn--)?[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*\\.)+(((xn--)?)[a-zA-Z0-9\\-]{2,63})"
 regexMap["ssl_server_wildcard_dv"] = "\\*\\.((?=[a-zA-Z0-9\\-]{1,63}\\.)(xn--)?[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*\\.)+(((xn--)?)[a-zA-Z0-9\\-]{2,63})"
-regexMap["ssl_codesign_ev"] = "([a-zA-Z0-9'\\s\\-\\:\\.\\&\\,\\@])+"
 regexMap["ssl_codesign_ov"] = "([a-zA-Z0-9'\\s\\-\\:\\.\\&\\,\\@])+"
 regexMap["ssl_server_wild_multi"] = "(\\*\\.)*((?=[a-zA-Z0-9\\-]{1,63}\\.)(xn--)?[a-zA-Z0-9]+(\\-[a-zA-Z0-9]+)*\\.)+(((xn--)?)[a-zA-Z0-9\\-]{2,63})"
 regexMap["ssl_encryption"] = "([A-Za-z0-9\\s]+)*"
@@ -78,6 +76,7 @@ descriptionMap["ssl_server_ms_dv"] = "SSL Server DV multiple host"
 descriptionMap["cns_like"] = "Autenticazione CNS like"
 descriptionMap["doc_sign"] = "Document Signing"
 descriptionMap["timestamping"] = "Timestamping"
+descriptionMap["generic"] = "Generic"
 
 for key, value in serviceTypesList.items():
 	typeId = key.decode('utf-8')
