@@ -9,7 +9,7 @@ try:
     conn = redis.StrictRedis(
     host=node1,
     port=16379,
-    password='$redis0123!')
+    password='')
 #    print (conn)
     conn.ping()
 #    print ('Connected!')
