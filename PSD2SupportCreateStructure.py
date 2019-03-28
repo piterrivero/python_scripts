@@ -147,8 +147,8 @@ conn.lpush("uiconfig:ncaRoles", "Payment initiation (PSP_PI)")
 conn.lpush("uiconfig:ncaRoles", "Account information (PSP_AI)")
 conn.lpush("uiconfig:ncaRoles", "Issuing of card-based payment instruments (PSP_IC)")
 
-
-	
+conn.hset("mwconfig:serviceTypes", "19", "nca")
+conn.hset("mwconfig:serviceType:19", "description", "nca")
 	
 	
 	
