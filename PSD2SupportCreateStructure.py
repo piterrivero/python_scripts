@@ -1,15 +1,22 @@
 #!/usr/bin/env python
 import redis
 
-node1 = 'devbe01.svil.actalis.it'
-node2 = 'devbe02.svil.actalis.it'
-node3 = 'devbe03.svil.actalis.it'
+node1dev = 'devbe01.svil.actalis.it'
+node2dev = 'devbe02.svil.actalis.it'
+node3dev = 'devbe03.svil.actalis.it'
+
+node1pte = 'ejbcapte1.pte.actalis.it'
+node2pte = 'ptevmolmo01.pte.actalis.it'
+node3pte = 'ptevmolmo02.pte.actalis.it'
+
+portdev=16379
+portpte=6379
 
 try:
     conn = redis.StrictRedis(
-    host=node3,
-    port=16379,
-    password='')
+    host=node3pte,
+    port=portpte,
+    password='$redis0123!')
 #    print (conn)
     conn.ping()
 #    print ('Connected!')
@@ -147,8 +154,6 @@ conn.lpush("uiconfig:ncaRoles", "Payment initiation (PSP_PI)")
 conn.lpush("uiconfig:ncaRoles", "Account information (PSP_AI)")
 conn.lpush("uiconfig:ncaRoles", "Issuing of card-based payment instruments (PSP_IC)")
 
-conn.hset("mwconfig:serviceTypes", "19", "nca")
-conn.hset("mwconfig:serviceType:19", "description", "nca")
 	
 	
 	
