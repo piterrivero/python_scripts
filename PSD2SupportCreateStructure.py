@@ -16,7 +16,7 @@ try:
     conn = redis.StrictRedis(
     host=node3pte,
     port=portpte,
-    password='$redis0123!')
+    password='')
 #    print (conn)
     conn.ping()
 #    print ('Connected!')
@@ -149,12 +149,11 @@ conn.hset("uiconfig:ncaList", "31", "United Kingdom")
 conn.hset("uiconfig:ncaDetails:31", "id", "GB-FCA")
 conn.hset("uiconfig:ncaDetails:31", "name", "Financial Conduct Authority")
 
-conn.lpush("uiconfig:ncaRoles", "Account servicing (PSP_AS)")
-conn.lpush("uiconfig:ncaRoles", "Payment initiation (PSP_PI)")
-conn.lpush("uiconfig:ncaRoles", "Account information (PSP_AI)")
-conn.lpush("uiconfig:ncaRoles", "Issuing of card-based payment instruments (PSP_IC)")
+conn.hset("uiconfig:ncaRoles", "PSP_AS", "Account servicing (PSP_AS)")
+conn.hset("uiconfig:ncaRoles", "PSP_PI", "Payment initiation (PSP_PI)")
+conn.hset("uiconfig:ncaRoles", "PSP_AI", "Account information (PSP_AI)")
+conn.hset("uiconfig:ncaRoles", "PSP_IC", "Issuing of card-based payment instruments (PSP_IC)")
 
-	
 	
 	
 	
